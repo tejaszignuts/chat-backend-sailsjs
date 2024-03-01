@@ -9,14 +9,22 @@
  */
 
 module.exports.policies = {
-
   /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
-
+   *                                                                          *
+   * Default policy for all controllers and actions, unless overridden.       *
+   * (`true` allows public access)                                            *
+   *                                                                          *
+   ***************************************************************************/
   // '*': true,
-
+  UserController: {
+    "*": "isLoggedIn",
+    register: true,
+    login: true,
+  },
+  ChatController: {
+    "*": "isLoggedIn",
+  },
+  MessageController: {
+    "*": "isLoggedIn",
+  },
 };

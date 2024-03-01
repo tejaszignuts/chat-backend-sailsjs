@@ -6,11 +6,12 @@
  */
 
 //import all packages
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const validator = require("validator");
+const { constants } = require("../../config/constants");
 
-//jwt method return jwt token
+let validator = constants.validator;
+let bcrypt = constants.bcrypt;
+let jwt = constants.jwt;
+
 const jwtAuth = (id) => {
   let key = "Secret";
   return jwt.sign({ id }, key, { expiresIn: "1d" });
@@ -18,6 +19,7 @@ const jwtAuth = (id) => {
 
 module.exports = {
   //user registaration controller
+
   register: async (req, res) => {
     try {
       const { name, email, password } = req.body;
@@ -33,7 +35,9 @@ module.exports = {
       }
 
       //validate email
+
       const validEmail = validator.isEmail(email);
+
       if (!validEmail) {
         return res.status(400).json("Please enter valid email");
       }
@@ -65,6 +69,7 @@ module.exports = {
         message: "Registration successful",
       });
     } catch (error) {
+      console.log(error);
       res.status(500).json(error);
     }
   },

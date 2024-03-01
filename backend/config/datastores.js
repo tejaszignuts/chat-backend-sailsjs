@@ -46,6 +46,6 @@ module.exports.datastores = {
      *                                                                          *
      ***************************************************************************/
     adapter: "sails-mongo",
-    url: "mongodb+srv://tejasp:abk6zi9PCTqr9Kdd@cluster0.tzesfcm.mongodb.net/chat-sailsjs",
+    url: process.env.MONGODB_URL,
   },
 };

@@ -22,4 +22,5 @@ module.exports.routes = {
   //messageRoutes
   "POST /user/chat/msg": "MessageController.createMessage",
   "GET /user/chat/msg/:chatId": "MessageController.getAllMessage",
+  "GET /user/msg/:id": "MessageController.getUserMessage",
 };

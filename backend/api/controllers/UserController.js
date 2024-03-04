@@ -64,9 +64,9 @@ module.exports = {
       const token = jwtAuth(newUser.id);
 
       res.status(200).json({
-        newUser,
         token,
         message: "Registration successful",
+        newUser,
       });
     } catch (error) {
       console.log(error);

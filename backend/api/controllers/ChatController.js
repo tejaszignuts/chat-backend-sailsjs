@@ -10,7 +10,6 @@ module.exports = {
   createChat: async (req, res) => {
     try {
       const { senderId, receiverId } = req.body;
-
       // Check if the chat already exists
       let chat = await Chat.findOne({
         members: { contains: senderId, contains: receiverId },
